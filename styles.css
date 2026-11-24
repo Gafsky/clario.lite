@@ -1,0 +1,77 @@
+:root {
+  --bg: #f4f6f3;
+  --card: #ffffff;
+  --ink: #15211b;
+  --muted: #5d6b63;
+  --line: #e1e7e2;
+  --green: #12805c;
+  --green-soft: #e3f3ec;
+  --red: #b4432f;
+  --amber: #9a6a0b;
+  --amber-soft: #fbf1db;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  max-width: 760px; margin: 0 auto; padding: 18px 16px 6px;
+}
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--green); color: #fff; font-weight: 800; font-size: 20px;
+}
+h1 { font-size: 19px; margin: 0; }
+h2 { font-size: 15px; margin: 0; }
+.shop { color: var(--muted); font-size: 13px; outline: none; border-bottom: 1px dashed transparent; }
+.shop:focus { border-bottom-color: var(--muted); }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: #fff; }
+.badge.device { background: var(--green-soft); color: var(--green); border-color: #bfe3d3; }
+.badge.cloud { background: #eaf0fb; color: #2c55a3; border-color: #cbd8f2; }
+.badge.rules { background: var(--amber-soft); color: var(--amber); border-color: #efdcae; }
+.badge.offline { background: #fbe9e5; color: var(--red); border-color: #f0c9c0; }
+main { max-width: 760px; margin: 0 auto; padding: 8px 16px 24px; display: grid; gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.entry label { font-weight: 600; display: block; margin-bottom: 8px; }
+textarea {
+  width: 100%; resize: vertical; font: inherit; padding: 10px 12px;
+  border: 1.5px solid var(--line); border-radius: 10px; outline: none;
+}
+textarea:focus { border-color: var(--green); }
+.row { display: flex; gap: 8px; align-items: center; }
+.between { justify-content: space-between; margin-bottom: 8px; }
+.actions { justify-content: flex-end; margin-top: 8px; }
+button { font: 600 14px/1 system-ui, sans-serif; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+button.primary { background: var(--green); color: #fff; border: 0; }
+button.ghost { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+button.small { padding: 7px 12px; font-size: 12px; }
+button:disabled { opacity: .5; cursor: default; }
+#status { min-height: 20px; margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 560px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.stat span { display: block; font-size: 12px; color: var(--muted); }
+.stat b { font-size: 19px; font-variant-numeric: tabular-nums; }
+.stat b.neg { color: var(--red); }
+.muted { color: var(--muted); margin: -4px 2px 0; font-size: 13px; }
+.advice { white-space: pre-line; margin: 0; color: var(--ink); }
+select { font: inherit; font-size: 13px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+#list { list-style: none; margin: 0; padding: 0; }
+#list li {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center;
+  padding: 10px 2px; border-top: 1px solid var(--line);
+}
+#list li:first-child { border-top: 0; }
+#list li.empty { display: block; color: var(--muted); }
+#list small { display: block; color: var(--muted); font-size: 12px; }
+.amt { font-weight: 700; font-variant-numeric: tabular-nums; }
+li.sale .amt { color: var(--green); }
+li.expense .amt { color: var(--red); }
+.del { border: 0; background: transparent; color: var(--muted); font-size: 18px; padding: 4px 8px; }
+footer { max-width: 760px; margin: 0 auto; padding: 0 16px 28px; color: var(--muted); font-size: 12px; }

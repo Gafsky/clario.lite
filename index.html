@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clario Lite: offline AI ledger for small shops</title>
+    <meta name="description" content="Record sales by typing or speaking. On-device AI keeps your books private and working offline.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="logo" aria-hidden="true">C</span>
+        <div>
+          <h1>Clario Lite</h1>
+          <div class="shop" id="shop" contenteditable="true" spellcheck="false" aria-label="Shop name">My shop</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span id="engine" class="badge rules">Checking AI…</span>
+        <span id="net" class="badge online">Online</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="card entry">
+        <label for="entry-input">Tell Clario what happened</label>
+        <div class="row">
+          <textarea id="entry-input" rows="2" placeholder="Sold 3 bags of rice at 45k each to Mama Bisi"></textarea>
+        </div>
+        <div class="row actions">
+          <button id="mic-btn" class="ghost" type="button" aria-label="Speak instead">🎙 Speak</button>
+          <button id="record-btn" class="primary" type="button">Record</button>
+        </div>
+        <p id="status" role="status"></p>
+      </section>
+
+      <section class="stats">
+        <div class="stat"><span>Today’s sales</span><b id="today-sales">0</b></div>
+        <div class="stat"><span>Sales · 7 days</span><b id="week-sales">0</b></div>
+        <div class="stat"><span>Expenses · 7 days</span><b id="week-exp">0</b></div>
+        <div class="stat"><span>Profit · 7 days</span><b id="week-profit">0</b></div>
+      </section>
+      <p id="top-items" class="muted"></p>
+
+      <section class="card">
+        <div class="row between">
+          <h2>Advice from your numbers</h2>
+          <button id="advise-btn" class="ghost" type="button">Get advice</button>
+        </div>
+        <p id="advice" class="advice">Clario computes every total itself. The AI only explains them, so it can’t invent figures.</p>
+      </section>
+
+      <section class="card">
+        <div class="row between">
+          <h2>Records</h2>
+          <div class="row">
+            <select id="currency" aria-label="Currency">
+              <option value="₦">₦ NGN</option>
+              <option value="$">$ USD</option>
+              <option value="KSh ">KSh KES</option>
+              <option value="GH₵">GH₵ GHS</option>
+              <option value="₹">₹ INR</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+            </select>
+            <button id="clear-btn" class="ghost small" type="button">Clear all</button>
+          </div>
+        </div>
+        <ul id="list"></ul>
+      </section>
+    </main>
+
+    <footer>Your records stay on this device. Built with Firebase AI Logic hybrid inference (Gemini Nano on-device, Gemini in the cloud as fallback).</footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
